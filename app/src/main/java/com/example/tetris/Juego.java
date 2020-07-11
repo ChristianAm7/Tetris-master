@@ -21,7 +21,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class Juego extends View implements View.OnClickListener {
 
-    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar;
+    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar, botonBajarFinal;
     private TextView puntuacion, nivel;
     private MainActivity mainActivity;
     private Tablero tablero;
@@ -52,6 +52,7 @@ public class Juego extends View implements View.OnClickListener {
         botonDcha = mainActivity.getBotonDcha();
         botonBajar = mainActivity.getBotonBajar();
         botonIzda = mainActivity.getBotonIzda();
+        botonBajarFinal = mainActivity.getBotonBajarFinal();
         puntuacion = mainActivity.getPuntos();
         nivel = mainActivity.getNivel();
 
@@ -63,6 +64,7 @@ public class Juego extends View implements View.OnClickListener {
         botonBajar.setOnClickListener(this);
         botonIzda.setOnClickListener(this);
         botonRotar.setOnClickListener(this);
+        botonBajarFinal.setOnClickListener(this);
         if (modo == 0) {
             loopClasico();
         } else {
@@ -260,6 +262,14 @@ public class Juego extends View implements View.OnClickListener {
                 }
                 invalidate();
                 break;
+            case R.id.botonBajarFinal:
+                tablero.moverPiezas(tablero.getPieza(), 'f');
+                tablero.moverPiezas(troll, 'f');
+                setPuntos(1);
+                puntuacion.setText("" + puntos);
+                invalidate();
+                break;
+
         }
     }
 

@@ -26,10 +26,13 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task git(type: Exec) {
+task gitCommit(type: Exec) {
     //commandLine 'gradlew', 'build'
     commandLine 'git', 'checkout', 'develop'
     commandLine 'git', 'add', '.'
-    commandLine 'git', 'commit', '-m', 'ejemplo'
+    commandLine 'git', 'commit', '-m', '"TDD"'
+}
+
+task gitPush(type: Exec) {
     commandLine 'git', 'push'
 }

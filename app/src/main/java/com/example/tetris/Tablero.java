@@ -558,6 +558,13 @@ public class Tablero {
                         ponerPieza(pieza);
                     }
                     break;
+                case 'f':
+                    while (puedeMoverse(pieza, 0, 1, false)) {
+                        borrarPieza(pieza);
+                        pieza.mover(0, 1);
+                        ponerPieza(pieza);
+                    }
+                    break;
             }
         }
 
@@ -568,6 +575,10 @@ public class Tablero {
         if (pieza == null) {
             return true;
         }
+
+        int m = Math.max(Math.max(pieza.y1, pieza.y2), Math.max(pieza.y3, pieza.y4)) + 1;
+        System.out.println("Valor de m: " + y);
+
         Point xy1 = new Point(pieza.x1, pieza.y1);
         Point xy2 = new Point(pieza.x2, pieza.y2);
         Point xy3 = new Point(pieza.x3, pieza.y3);
@@ -584,6 +595,8 @@ public class Tablero {
         puntos.add(aux2);
         puntos.add(aux3);
         puntos.add(aux4);
+
+        if (m == alturaTablero) return false;
 
         //Recorremos el array de los posibles puntos y controlamos que estamos dentro del tablero o si está ocupada la posicion o no
         for (Point a : puntos) {

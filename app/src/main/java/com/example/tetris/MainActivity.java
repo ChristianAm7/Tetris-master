@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar;
+    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar, botonBajarFinal;
     private TextView puntosTextView, nivelTextView;
     private Juego juego;
     private Tablero tablero = new Tablero();
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         botonIzda = (ImageButton) findViewById(R.id.botonIzda);
         botonBajar = (ImageButton) findViewById(R.id.botonBajar);
         botonRotar = (ImageButton) findViewById(R.id.botonRotar);
+        botonBajarFinal = (ImageButton) findViewById(R.id.botonBajarFinal);
         puntosTextView = (TextView) findViewById(R.id.puntosText);
         nivelTextView = (TextView) findViewById(R.id.nivelText);
         Pieza p = new Pieza(0,0);
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     public ImageButton getBotonRotar() {
         return findViewById(R.id.botonRotar);
+    }
+
+    public ImageButton getBotonBajarFinal() {
+        return findViewById(R.id.botonBajarFinal);
     }
 
     public TextView getPuntos() {
