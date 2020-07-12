@@ -14,11 +14,24 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.sonarqube" version "2.8"
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
         
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "ChristianAm7_Tetris-master"
+        property "sonar.organization", "christianam7"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.login", "1c3a14191639221ba912cb70fa8af0e09a3ab996"
     }
 }
 
@@ -30,7 +43,7 @@ task gitCommit(type: Exec) {
     //commandLine 'gradlew', 'build'
     commandLine 'git', 'checkout', 'develop'
     commandLine 'git', 'add', '.'
-    commandLine 'git', 'commit', '-m', '"TDD"'
+    commandLine 'git', 'commit', '-m', '"refactorizacion"'
 }
 
 task gitPush(type: Exec) {
